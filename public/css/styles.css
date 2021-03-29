@@ -1,0 +1,31 @@
+container-fluid {
+   padding-top: 70px;
+   padding-bottom: 70px;
+}
+
+.navbar {
+   padding: 30px 50px 30px 50px;
+   border: 0;
+   border-radius: 0;
+   margin: 0;
+   font-size: 12px;
+   letter-spacing: 5px;
+}
+
+.navbar-nav .navbar-brand li a, a:visited {
+   color: whitesmoke;
+}
+
+li a:hover{
+   font-weight: bold;
+}
+
+.nav-item {
+   float: left;
+   padding-left: 36px;
+}
+
+li {
+   float: left;
+   padding-left: 25px;
+}
