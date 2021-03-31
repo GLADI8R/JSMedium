@@ -27,7 +27,7 @@ const blogSchema = new mongoose.Schema({
 });
 
 blogSchema.index({
-   "title": "text"
+   "title": "text" 
 });
 
 const Article = mongoose.model("Article", blogSchema);
@@ -50,32 +50,16 @@ app.get("/contact", (req, res) => {
 });
 
 app.get("/search", (req, res) => {
-   const query = {$text: {$search: searchedFor}};
-   const sort = { score: { $meta: "textScore" } };
-   const projection = {
-      _id: 0,
-      title: 1,
-      body: 1
-   };
-   //console.log(query);
-   const cursor = Article.find(query);
-   //console.log(cursor);
-   cursor.exec( (err, article) => {
-      console.log(article.title);
-      //res.render("Search", {Title: article.title, Body: article.body});
+   Article.find({title: {$regex: searchedFor, $options: "i"}}, (err, articles) => {
+      if(err) {
+         console.log("Error:", error);
+      } else {
+         res.render("Search", {articles: articles});
+      }
    });
-
-   //Article.findOne({title: searchedFor}, (err, article) => {
-   //   if(err) {
-   //      console.log("Error:", error);
-   //   } else {
-   //      res.render("Search", {Title: article.title, Body: article.body});
-   //   }
-   //});
 });
 
 app.post("/search", (req, res) => {
-   searchedFor = req.body.artFind;
    res.redirect("/search");
 });
 

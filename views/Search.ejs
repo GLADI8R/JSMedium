@@ -1,5 +1,7 @@
 <%- include("partials/header"); -%>
    <h1 class="dispay-3 mt-5">Search Results</h1>
-   <h2 class="mt-5"><%= Title %></h2>
-   <p><%= Body %></p>
+   <% articles.forEach(function(article){  %>
+      <h2> <%= article.title %> </h2>
+      <p> <%= article.body %> </p>
+   <% }) %>
 <%- include("partials/footer"); -%>
