@@ -1,4 +1,5 @@
 const port = 3000;
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
@@ -36,8 +37,7 @@ blogSchema.index({
    "title": "text" 
 });
 
-const secret = "ThisisJSMedium";
-userSchema.plugin(encrypt, { secret: secret, encryptedFiels: ['password'] }); 
+userSchema.plugin(encrypt, { secret: process.env.SECRET, encryptedFields: ['password'] }); 
 
 const Article = mongoose.model("Article", blogSchema);
 const User = mongoose.model("User", userSchema);
@@ -88,7 +88,7 @@ app.post("/login", (req, res) => {
 
    User.findOne({email: email}, (err, user) => {
       if(err){
-         console.log("Error:", error);
+         console.log("Error:", err);
       } else {
          if(user) {
             if(user.password === password){
