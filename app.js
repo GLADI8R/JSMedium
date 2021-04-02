@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
+const encrypt = require('mongoose-encryption');
 
 const app = express();
 
@@ -34,6 +35,9 @@ const userSchema = new mongoose.Schema({
 blogSchema.index({
    "title": "text" 
 });
+
+const secret = "ThisisJSMedium";
+userSchema.plugin(encrypt, { secret: secret, encryptedFiels: ['password'] }); 
 
 const Article = mongoose.model("Article", blogSchema);
 const User = mongoose.model("User", userSchema);
@@ -88,7 +92,7 @@ app.post("/login", (req, res) => {
       } else {
          if(user) {
             if(user.password === password){
-               res.render("/home");
+               res.redirect("/home");
             }
          }
       }
