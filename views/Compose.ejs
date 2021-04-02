@@ -1,4 +1,30 @@
 <%- include("partials/header"); -%>
+
+<nav class="navbar navbar-dark navbar-expand-sm bg-dark">
+      <p class="navbar-brand">JS Medium</p>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+               <a class="nav-link" href="/">HOME</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/about">ABOUT</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/signUp" tabindex="-1">SIGN UP</a>
+            </li>
+            <li class="nav-item">
+               <a href="/signUp">
+                  <span class="btn btn-dark mb-2">Get Started</span>
+               </a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   
 <h1>Compose</h1>
 <form action="/compose" method="POST">
    <div class="form-group">

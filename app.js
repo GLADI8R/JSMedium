@@ -26,16 +26,26 @@ const blogSchema = new mongoose.Schema({
    body: String
 });
 
+const userSchema = new mongoose.Schema({
+   email: String,
+   password: String
+});
+
 blogSchema.index({
    "title": "text" 
 });
 
 const Article = mongoose.model("Article", blogSchema);
+const User = mongoose.model("User", userSchema);
 let searchedFor = "";
 
 Article.createIndexes();
 
-app.get("/", (req, res) => {
+app.get("/", (req, res) =>{
+   res.render("JSMed");
+});
+
+app.get("/home", (req, res) => {
    Article.find({}, function(err, articles){
       res.render("Home", {homeContent: homeContent, articles: articles});
    });
@@ -45,8 +55,44 @@ app.get("/about", (req, res) => {
    res.render("About");
 });
 
-app.get("/contact", (req, res) => {
-   res.render("Contact");
+app.get("/login", (req, res) => {
+   res.render("Login");
+});
+
+app.get("/signUp", (req, res) => {
+   res.render("SignUp");
+});
+
+app.post("/register", (req, res) => {
+   const user = new User({
+      email: req.body.email,
+      password: req.body.password
+   });
+
+   user.save((err) => {
+      if(err){
+         console.log("Error:", error);
+      } else {
+         res.redirect("/home");
+      }
+   })
+});
+
+app.post("/login", (req, res) => {
+   const email = req.body.email;
+   const password = req.body.password;
+
+   User.findOne({email: email}, (err, user) => {
+      if(err){
+         console.log("Error:", error);
+      } else {
+         if(user) {
+            if(user.password === password){
+               res.render("/home");
+            }
+         }
+      }
+   });
 });
 
 app.get("/search", (req, res) => {

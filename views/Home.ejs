@@ -1,5 +1,8 @@
 <%- include("partials/header"); -%>
 
+<nav class="navbar navbar-dark navbar-expand-sm bg-dark">
+      <p class="navbar-brand">JS Medium</p>
+
 <!--     Search feed    -->
    <div class="row mt-5 mb-5">
       <!--  Search Bar  -->
@@ -18,17 +21,21 @@
          </form>
       </div>
       <!--  Compose Section -->
-      <div class="col-md-4" style="float: left;">
+      <div class="col-md-2" style="float: left;">
          <form action="/Compose" method="POST">
             <div class="form-group">
                <a href="/compose">
-                  <span class="btn btn-outline-dark mb-2">Compose</span>
+                  <span class="btn btn-dark mb-2">Compose</span>
                </a>
             </div>
          </form>
-      </div>      
+      </div>
    </div>
+</nav>
 
+</head>
+<body>
+   <div class="container mt-5">
 
    <h1>Home</h1>
    <p> <%= homeContent %> </p>
