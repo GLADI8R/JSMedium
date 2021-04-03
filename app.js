@@ -4,17 +4,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
-const encrypt = require('mongoose-encryption');
+const bcrypt = require('bcrypt');
+const Schema = mongoose.Schema;
+const saltRounds = 10;
 
 const app = express();
 
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-mongoose.set('useUnifiedTopology', true);
 
 const homeContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
@@ -22,13 +20,17 @@ mongoose.connect("mongodb://localhost:27017/JSMedDB", {
    useUnifiedTopology: true, 
    useNewUrlParser: true
 });
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 
-const blogSchema = new mongoose.Schema({
+const blogSchema = new Schema({
    title: String,
    body: String
 });
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
    email: String,
    password: String
 });
@@ -36,8 +38,6 @@ const userSchema = new mongoose.Schema({
 blogSchema.index({
    "title": "text" 
 });
-
-userSchema.plugin(encrypt, { secret: process.env.SECRET, encryptedFields: ['password'] }); 
 
 const Article = mongoose.model("Article", blogSchema);
 const User = mongoose.model("User", userSchema);
@@ -63,26 +63,28 @@ app.get("/login", (req, res) => {
    res.render("Login");
 });
 
-app.get("/signUp", (req, res) => {
+app.get("/register", (req, res) => {
    res.render("SignUp");
 });
 
 app.post("/register", (req, res) => {
-   const user = new User({
-      email: req.body.email,
-      password: req.body.password
-   });
+   bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+      const user = new User({
+         email: req.body.email,
+         password: hash
+      });
 
-   user.save((err) => {
-      if(err){
-         console.log("Error:", error);
-      } else {
-         res.redirect("/home");
-      }
-   })
+      user.save((err) => {
+         if(err){
+            console.log(err);
+         } else {
+            res.redirect("/home");
+         }
+      });
+   });
 });
 
-app.post("/login", (req, res) => {
+app.post("/login", (req, response) => {
    const email = req.body.email;
    const password = req.body.password;
 
@@ -91,9 +93,13 @@ app.post("/login", (req, res) => {
          console.log("Error:", err);
       } else {
          if(user) {
-            if(user.password === password){
-               res.redirect("/home");
-            }
+            bcrypt.compare(password, user.password, (err, res) => {
+               if(err){
+                  console.log(err);
+               } else {
+                  response.redirect("/home");
+               }
+            });
          }
       }
    });
