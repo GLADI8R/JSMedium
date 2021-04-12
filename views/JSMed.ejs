@@ -1,6 +1,6 @@
 <%- include("partials/header"); -%>
 
-<nav class="navbar navbar-dark navbar-expand-sm bg-dark">
+<nav class="navbar navbar-light navbar-expand-sm" style="background-color: #E9E7EA">
    <p class="navbar-brand">JS Medium</p>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,10 +10,10 @@
          <li class="nav-item active">
             <a class="nav-link" href="/">HOME</a>
          </li>
-         <li class="nav-item">
+         <li class="nav-item active">
             <a class="nav-link" href="/about">ABOUT</a>
          </li>
-         <li class="nav-item">
+         <li class="nav-item active">
             <a class="nav-link" href="/login" tabindex="-1">LOG IN</a>
          </li>
          <li class="nav-item">
@@ -27,6 +27,22 @@
 
 </head>
 <body>
-   <div class="container mt-5">
+   <div class="Intro">
+      <img src="Images/Pencils.jpg" class="image-fluid" style="height: 41rem; width: 100rem;">
+      <div class="centered mt-1 justify-content-center">
+         JSMedium
+      </div>
+   </div>
+
+   <div class="container text-left home m-10">
+      Explore Expand <br> your knowledge
+   </div>
+
+   <div class="Intro">
+      <img src="Images/Article.jpg" class="image-fluid" style="height: 37rem; width: 100rem;">
+      <div class="centered mt-1 text-center home" style="top: 50%;">
+         All Your Ideas In One Place
+      </div>
+   </div>
 
 <%- include("partials/footer"); -%>
