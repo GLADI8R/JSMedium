@@ -27,6 +27,7 @@ li a:hover{
 .nav-item {
    float: left;
    padding-left: 36px;
+   font-family: 'Josefin Sans', sans-serif;
 }
 
 li {
@@ -58,7 +59,7 @@ li {
    margin-bottom: 10rem;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 640px) {
    .centered{
       top: 10%;
       font-size: 4.5rem;
@@ -71,5 +72,8 @@ li {
    .m-10 {
       margin-top: 7rem;
       margin-bottom: 7rem;
+   }
+   .Explore {
+      display: none;
    }
 }
