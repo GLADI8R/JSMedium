@@ -59,6 +59,10 @@ li {
    margin-bottom: 10rem;
 }
 
+.about{
+   font-size: 2.5rem;
+}
+
 @media only screen and (max-width: 640px) {
    .centered{
       top: 10%;
@@ -75,5 +79,11 @@ li {
    }
    .Explore {
       display: none;
+   }
+   .blockquote{
+      font-size: 1.2rem;
+   }
+   .about{
+      font-size: 2rem;
    }
 }

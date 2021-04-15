@@ -1,7 +1,7 @@
 <%- include("partials/header"); -%>
 
-<nav class="navbar navbar-dark navbar-expand-sm bg-dark">
-   <p class="navbar-brand">JS Medium</p>
+<nav class="navbar navbar-light navbar-expand-sm" style="background-color: #E9E7EA">
+   <p class="navbar-brand" style="font-family: 'Josefin Sans', sans-serif;">About</p>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
    </button>
@@ -10,14 +10,11 @@
          <li class="nav-item active">
             <a class="nav-link" href="/">HOME</a>
          </li>
-         <li class="nav-item">
-            <a class="nav-link" href="/about">ABOUT</a>
+         <li class="nav-item active">
+            <a class="nav-link" href="/login" tabindex="-1">LOG IN</a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="/signUp" tabindex="-1">SIGN UP</a>
-         </li>
-         <li class="nav-item">
-            <a href="/signUp">
+            <a href="/register">
                <span class="btn btn-dark mb-2">Get Started</span>
             </a>
          </li>
@@ -28,7 +25,13 @@
 </head>
 <body>
    <div class="container mt-5">
-
-   <h1 class="display-3">About</h1>
-   <p></p>
+      <blockquote class="blockquote text-right display-1" style="font-size: 1.5rem; font-family: 'Josefin Sans', sans-serif;">
+         <p class="mb-0"><b>Ideas are easy. Implementation is hard.</b></p>
+         <footer class="blockquote-footer"><cite title="Source Title">Guy Kawasakie</cite></footer>
+      </blockquote>
+      <div class="mt-5 mb-5 text-left display-3 about" style="font-family: 'Caveat', cursive;">
+         JSMedium is a blog website which is made using Nodejs, Express, Ejs, Mongoose, Bootstrap for styling, MongoDB as database.<br><br>
+         For Security and authentication of user passwords 'bcrypt' package is used.
+      </div>
+   </div>
 <%- include("partials/footer"); -%>
