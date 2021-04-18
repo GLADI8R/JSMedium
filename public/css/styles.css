@@ -275,7 +275,7 @@ input:focus {
 }
 
 .submits {
-   width: 48%;
+   width: 80%;
    height: 50px;
    display: inline-block;
    float: left;
