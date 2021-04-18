@@ -1,10 +1,10 @@
 <%- include("partials/header"); -%>
 
-<nav class="navbar navbar-light navbar-expand-sm" style="border-bottom: 1.5px solid black; background-color: #f7f2e7;">
+<nav class="navbar navbar-light navbar-expand-sm" style="border-bottom: 1.5px solid black; background-color: #9CC3D5FF;">
    <div class="navbar-brand row mr-auto" style="font-family: 'Josefin Sans', sans-serif;">JS Medium</div>
 
 <!--     Search feed    -->
-   <div class=" row mt-3 mb-1 mr-5">
+   <div class=" row mt-3 mr-5">
       <!--  Search Bar  -->
       <div class="col-md-9 ml-auto">
          <form action="/search" method="POST">
@@ -35,12 +35,17 @@
 
 </head>
 <body>
-   <div class="container mt-5">
-
-   <h1>Home</h1>
-   <p> <%= homeContent %> </p>
+   <div class="" style="background-color: #9CC3D5FF;">
+      <div class=""><img src="Images/Developer.svg" ALIGN="right" class="mx-auto d-block img-dev"></div>
+      <div class="text-left">
+         <h1 class="cont-head text-blue p-10" >Read what's trending <br><br> Write what's on your mind</h1>
+      </div>
+   </div>
+   <div class="container mt-5 mb-5" >
    <% articles.forEach(function(article){  %>
-      <h1> <%= article.title %> </h1>
-      <p> <%= article.body%> </p>
+      <h1 class="cont-head mt-3"><a href="/articles/<%= article._id %>"> <%= article.title %> </a></h1>
+      <p class="cont-body mb-3"> <%= article.body.substring(0, 30) %> </p>
    <% }) %>
+   </div>
+   
 <%- include("partials/footer"); -%>

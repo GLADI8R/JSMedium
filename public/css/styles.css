@@ -17,7 +17,7 @@ container-fluid {
    letter-spacing: 5px;
 }
 
-.navbar-nav .navbar-brand li a, a:visited {
+.navbar-nav .navbar-brand li a {
    color: whitesmoke;
 }
 
@@ -59,9 +59,45 @@ li {
    margin-top: 10rem;
    margin-bottom: 10rem;
 }
+.p-10{
+   padding: 10rem 0 10rem 5rem;
+}
+
+.fl {
+   float: left;
+   margin-left: 15rem;
+}
+
+.mright-10 {
+   margin-right: 10rem;
+}
 
 .about{
    font-size: 2.5rem;
+}
+
+.cont-head {
+   font-family: 'Open Sans', sans-serif;
+   font-weight: bold;
+   font-size: 3rem;
+   color: #000000;
+}
+
+.cont-body {
+   font-family: 'Roboto', sans-serif;
+   font-size: 1.3rem;
+   color: #877d77;
+}
+
+.text-blue {
+   color: #0063B2FF;
+   font-size: 4.5rem;
+   font-weight: 100;
+}
+
+.img-dev {
+   height: 28rem;
+   padding-right: 5rem;
 }
 
 @media only screen and (max-width: 640px) {
@@ -71,21 +107,38 @@ li {
    }
 
    .home {
-      font-size: 3rem;
+      font-size: 2rem;
+      text-align: left;
    }
 
    .m-10 {
       margin-top: 7rem;
       margin-bottom: 7rem;
    }
+   .p-10 {
+      padding: 5rem 0 7rem 0;
+   }
    .Explore {
-      display: none;
+      max-width: 100%;
+      max-height: 15rem;
    }
    .blockquote{
       font-size: 1.2rem;
    }
    .about{
       font-size: 2rem;
+   }
+   .mright-10 {
+      margin-right: 0%;
+      float: left;
+   }
+   .text-blue {
+      font-size: 2.1rem;
+      font-weight: 100;
+   }
+   .img-dev {
+      display: none;
+      padding-right: 0;
    }
 }
 

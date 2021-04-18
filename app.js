@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const Schema = mongoose.Schema;
 const saltRounds = 10;
+const _ = require('lodash');
 
 const app = express();
 
@@ -134,6 +135,13 @@ app.post("/compose", (req, res) => {
       if(!err){
          res.redirect("/");
       }
+   });
+});
+
+app.get("/articles/:artID", (req, res) => {
+   let clickedArticle = req.params.artID;
+   Article.findOne({_id: clickedArticle}, (err, article) => {
+         res.render("Article", {Title: article.title, Body: article.body});
    });
 });
 
