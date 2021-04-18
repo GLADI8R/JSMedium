@@ -43,9 +43,9 @@
    </div>
    <div class="container mt-5 mb-5" >
    <% articles.forEach(function(article){  %>
-      <h1 class="cont-head mt-3"><a href="/articles/<%= article._id %>"> <%= article.title %> </a></h1>
+      <h1 class="cont-head mt-3"><a href="/articles/<%= article._id %>" style="color: #020202;"> <%= article.title %> </a></h1>
       <p class="cont-body mb-3"> <%= article.body.substring(0, 30) %> </p>
    <% }) %>
    </div>
-   
+
 <%- include("partials/footer"); -%>

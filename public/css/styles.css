@@ -72,6 +72,10 @@ li {
    margin-right: 10rem;
 }
 
+.mleft-15 {
+   margin-left: 15rem;
+}
+
 .about{
    font-size: 2.5rem;
 }
@@ -79,7 +83,7 @@ li {
 .cont-head {
    font-family: 'Open Sans', sans-serif;
    font-weight: bold;
-   font-size: 3rem;
+   font-size: 2.5rem;
    color: #000000;
 }
 
@@ -98,6 +102,10 @@ li {
 .img-dev {
    height: 28rem;
    padding-right: 5rem;
+}
+
+.img-char {
+   height: 25rem;
 }
 
 @media only screen and (max-width: 640px) {
@@ -128,10 +136,6 @@ li {
    .about{
       font-size: 2rem;
    }
-   .mright-10 {
-      margin-right: 0%;
-      float: left;
-   }
    .text-blue {
       font-size: 2.1rem;
       font-weight: 100;
@@ -139,6 +143,21 @@ li {
    .img-dev {
       display: none;
       padding-right: 0;
+      padding-left: 6rem;
+   }
+   .img-char {
+      height: 12rem;
+   }
+}
+
+@media only screen and (max-width: 769px) {
+   .mleft-15 {
+      margin-top: 2rem;
+      margin-left: 2rem;
+   }
+   .mright-10 {
+      margin-right: 0%;
+      float: left;
    }
 }
 
