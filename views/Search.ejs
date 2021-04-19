@@ -1,7 +1,41 @@
 <%- include("partials/header"); -%>
-   <h1 class="dispay-3 mt-5">Search Results</h1>
-   <% articles.forEach(function(article){  %>
-      <h2> <%= article.title %> </h2>
-      <p> <%= article.body %> </p>
-   <% }) %>
+
+   <nav class="navbar navbar-light navbar-expand-sm" style="border-bottom: 1.5px solid black; background-color: #E9E7EA;">
+   <p class="navbar-brand row mr-auto ml-2" style="font-family: 'Josefin Sans', sans-serif;">JS Medium</p>
+   
+   <!--     Search feed    -->
+   <div class=" row mt-3 mr-5">
+      <!--  Search Bar  -->
+      <div class="col-md-8 ml-auto">
+         <form action="/search" method="POST">
+            <div class="input-group mb-3">
+               <input type="text" name="artFind" class="form-control" placeholder="Search for Articles">
+               <div class="input-group-append">
+                  <button class="btn btn-outline-dark" type="submit" id="button-addon2">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                     </svg>
+                  </button>
+               </div>
+            </div>
+         </form>
+      </div>
+      
+      <div class="col-md-2 pr-5 ml-auto">
+         <div class="form-group">
+            <a href="/home">
+               <span class="btn btn-dark mb-2">HOME</span>
+            </a>
+         </div>
+      </div>
+   </div>
+   </nav>
+
+   <div class="container">
+      <h1 class="dispay-3 mt-5 mb-5">Search Results</h1>
+      <% articles.forEach(function(article){  %>
+         <h1 class="cont-head mt-3"><a href="/articles/<%= article._id %>" style="color: #020202;"> <%= article.title %> </a></h1>
+         <p class="cont-body mb-5"> <%= article.body.substring(0, 30) %> </p>
+      <% }) %>
+   </div>
 <%- include("partials/footer"); -%>

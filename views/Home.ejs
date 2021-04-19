@@ -6,7 +6,7 @@
 <!--     Search feed    -->
    <div class=" row mt-3 mr-5">
       <!--  Search Bar  -->
-      <div class="col-md-9 ml-auto">
+      <div class="col-md-6 ml-auto">
          <form action="/search" method="POST">
             <div class="input-group mb-3">
                <input type="text" name="artFind" class="form-control" placeholder="Search for Articles">
@@ -21,11 +21,21 @@
          </form>
       </div>
       <!--  Compose Section -->
-      <div class="col-md-2 ml-auto">
+      <div class="col-md-2 pr-5 ml-auto">
          <form action="/Compose" method="POST">
             <div class="form-group">
                <a href="/compose">
                   <span class="btn btn-dark mb-2">Write</span>
+               </a>
+            </div>
+         </form>
+      </div>
+      <!--  Logout Button-->
+      <div class="col-md-4 ml-auto fr">
+         <form action="/Compose" method="POST">
+            <div class="form-group">
+               <a href="/">
+                  <span class="btn btn-dark mb-2">Log Out</span>
                </a>
             </div>
          </form>
@@ -38,7 +48,7 @@
    <div class="" style="background-color: #9CC3D5FF;">
       <div class=""><img src="Images/Developer.svg" ALIGN="right" class="mx-auto d-block img-dev"></div>
       <div class="text-left">
-         <h1 class="cont-head text-blue p-10" >Read what's trending <br><br> Write what's on your mind</h1>
+         <h1 class="home-cont text-blue p-10" style="font-family: 'Josefin Sans', sans-serif;">Read what's trending <br><br> Write what's on your mind</h1>
       </div>
    </div>
    <div class="container mt-5 mb-5" >

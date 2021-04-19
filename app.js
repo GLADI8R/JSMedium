@@ -27,6 +27,7 @@ mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
 const blogSchema = new Schema({
+   owner: String,
    title: String,
    body: String
 });
@@ -43,10 +44,12 @@ blogSchema.index({
 const Article = mongoose.model("Article", blogSchema);
 const User = mongoose.model("User", userSchema);
 let searchedFor = "";
+let currentUser = "";
 
 Article.createIndexes();
 
-app.get("/", (req, res) =>{
+app.get("/", (req, res) => {
+   currentUser = "";
    res.render("JSMed");
 });
 
@@ -83,6 +86,7 @@ app.post("/register", (req, res) => {
          }
       });
    });
+   currentUser = req.body.email;
 });
 
 app.post("/login", (req, response) => {
@@ -101,9 +105,12 @@ app.post("/login", (req, response) => {
                   response.redirect("/home");
                }
             });
+         } else {
+            window.alert("No user found for selected username");
          }
       }
    });
+   currentUser = req.body.email;
 });
 
 app.get("/search", (req, res) => {
@@ -127,13 +134,14 @@ app.get("/compose", (req, res) => {
 
 app.post("/compose", (req, res) => {
    const article = new Article({
+      owner: currentUser,
       title: req.body.artTitle,
       body: req.body.artBody
    });
 
    article.save((err) => {
       if(!err){
-         res.redirect("/");
+         res.redirect("/home");
       }
    });
 });
@@ -141,7 +149,7 @@ app.post("/compose", (req, res) => {
 app.get("/articles/:artID", (req, res) => {
    let clickedArticle = req.params.artID;
    Article.findOne({_id: clickedArticle}, (err, article) => {
-         res.render("Article", {Title: article.title, Body: article.body});
+      res.render("Article", {Title: article.title, Body: article.body, By: article.owner});
    });
 });
 

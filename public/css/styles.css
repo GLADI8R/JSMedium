@@ -68,6 +68,10 @@ li {
    margin-left: 15rem;
 }
 
+.fr {
+   float:right;
+}
+
 .mright-10 {
    margin-right: 10rem;
 }
@@ -93,10 +97,21 @@ li {
    color: #877d77;
 }
 
+.blog-head {
+   font-family: 'Open Sans', sans-serif;
+   font-weight: 50;
+   font-size: 4rem;
+}
+
+.blog-body {
+   font-family: 'Roboto', sans-serif;
+   font-size: 1.5rem;
+}
+
 .text-blue {
    color: #0063B2FF;
    font-size: 4.5rem;
-   font-weight: 100;
+   font-weight: 150;
 }
 
 .img-dev {
@@ -124,7 +139,7 @@ li {
       margin-bottom: 7rem;
    }
    .p-10 {
-      padding: 5rem 0 7rem 0;
+      padding: 2.5rem 0 5rem 0;
    }
    .Explore {
       max-width: 100%;
@@ -137,8 +152,20 @@ li {
       font-size: 2rem;
    }
    .text-blue {
-      font-size: 2.1rem;
+      font-size: 2.5rem;
       font-weight: 100;
+   }
+   .cont-head {
+      font-size: 2rem;
+   }
+   .cont-body {
+      font-size: 1.1rem;
+   }
+   .blog-head {
+      font-size: 3.3rem;
+   }
+   .blog-body {
+      font-size: 1.1rem;
    }
    .img-dev {
       display: none;
