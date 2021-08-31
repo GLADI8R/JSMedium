@@ -1,8 +1,6 @@
 # JSMedium
 A Blog site.
 
-Implemented REST API in Nodejs and authentication using npm package 'Bcrypt'.
-
 ### Tech Stack:
 - Nodejs
 - Express
