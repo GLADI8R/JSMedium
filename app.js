@@ -149,7 +149,18 @@ app.post("/compose", (req, res) => {
 app.get("/articles/:artID", (req, res) => {
    let clickedArticle = req.params.artID;
    Article.findOne({_id: clickedArticle}, (err, article) => {
-      res.render("Article", {Title: article.title, Body: article.body, By: article.owner});
+      res.render("Article", {ID: article._id, Title: article.title, Body: article.body, By: article.owner});
+   });
+});
+
+
+app.post("/delete", (req, res) => {
+   Article.deleteOne({_id: req.body.deleteArticle}, err => {
+      if(err) {
+         res.send(err);
+      } else {
+         res.redirect("/home");
+      }
    });
 });
 
