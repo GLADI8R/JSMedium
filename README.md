@@ -1,5 +1,5 @@
 # JSMedium
-A Blog site.
+A Full-Stack Blog site.
 
 ### Tech Stack:
 - Nodejs
