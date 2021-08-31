@@ -12,6 +12,7 @@ Implemented REST API in Nodejs and authentication using npm package 'Bcrypt'.
 ### Working:
 - Clone the repo to your machine
 - Install all dependencies using ``` npm i ```
+- Fire up MongoDB using ``` mongod ```
 
 - To run the server do:
 ```
